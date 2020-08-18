@@ -2,9 +2,9 @@ import requests
 import json
 requests.urllib3.disable_warnings()
 
-CONTROLLER = '10.11.1.170'
-USER = 'admin'
-PASSWORD = 'xxx'
+CONTROLLER = ''
+USER = ''
+PASSWORD = ''
 
 
 class DMFAPI():
