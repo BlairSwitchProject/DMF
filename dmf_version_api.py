@@ -42,8 +42,8 @@ class DMFAPI():
         payload = json.dumps({'user': self.username, 'password': self.password})
         auth_response = rs.post(url=url, data=payload, verify=False)
         assert auth_response.ok
-        return rs.cookies['session_cookie']
         # print(auth_response)
+        return rs.cookies['session_cookie']
 
     def _deletesession(self):
         '''deletes the session to DMF controller
@@ -56,7 +56,8 @@ class DMFAPI():
         # print(delete_session_response)
 
     def _version(self):
-        '''uses the request module to get controller/ appliance infomation
+        '''uses the request module to get controller/ appliance infomation.
+           api paths can be found in the api guide on Arista's web site.
         Returns:
            json output of dmf server statistics.
         '''
@@ -70,10 +71,10 @@ class DMFAPI():
 
 def main():
     api = DMFAPI(CONTROLLER, USER, PASSWORD)
-    api._authenticate()
     dmf_version = api._version()
     print(dmf_version[0]['version'])
     api._deletesession()
+
 
 if __name__ == '__main__':
     main()
